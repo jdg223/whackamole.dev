@@ -2,12 +2,15 @@ var whackBoxes = document.getElementsByClassName('whack-boxes');
 var timeRemaining = [];
 var score = [''];
 
+// function that returns a random div
 function randomBox() {
  	var selection = Math.floor(Math.random() * 9);
  	var returnedValue = $(whackBoxes[selection]);
  		return returnedValue 		
 };
 
+// animates the moles by adding class fade-in and when game is over changes timer text to say game over
+//, also stops the game from running
 function moleAnimation() {
 	var random = randomBox();
 	var beginAnimate = setInterval(function() {
@@ -21,13 +24,15 @@ function moleAnimation() {
 		};
   	},50);
 };
+
+// ends the animation by removing class fade-in
 function endOfAnimation() {
 	setInterval(function(){
 	randomBox().removeClass('fade-in');
 	},200);
 };
 
-
+// this is what keeps the and displays game time remaining
 function gameTimer() {		
 	var timer = 30;
 	var i = 30;
@@ -42,7 +47,7 @@ function gameTimer() {
 };
 
 
-
+// checks if classes on both click and the box match and if they do adds one to the score
 function checkIfMatch () {
 	setInterval(function() {
 	if ($('div').hasClass('whack-boxes bigEntrance fade-in clicked')) {
@@ -56,6 +61,7 @@ function checkIfMatch () {
 		},200);	
 };
 
+//function that starts the game
 function runGame() {
 	gameTimer();
 	moleAnimation();	
@@ -63,24 +69,28 @@ function runGame() {
 	endOfAnimation();
 };
 
+//function that enables the game to be restarted
 function  resetGame() {
 	timeRemaining = [];
 	score = ['']; 
 	$('#score').text("Your Score: 0");
 	runGame();
 }
+//add class clicked to whack-boxes when they are clicked
 $('.whack-boxes').click(function() {
 	$(this).addClass('clicked');
 	console.log(this);
 });
 
+//if this button is pressed the game will run
 $('#gameStart').click(function() {
 	runGame();
 });
 
+//if the buttin is pressed the game will restart
 $('#gameReset').click(function() {
 	resetGame();
-})
+});
 
 
 // for gradient background
@@ -99,30 +109,34 @@ var colorIndexes = [0,1,2,3];
 //transition speed
 var gradientSpeed = 0.002;
 
+//function that runs gradient background
 function updateGradient(){
   
   if ( $===undefined ) return;
-  
-var c0_0 = colors[colorIndexes[0]];
-var c0_1 = colors[colorIndexes[1]];
-var c1_0 = colors[colorIndexes[2]];
-var c1_1 = colors[colorIndexes[3]];
+ // adds color array to color index
+var colorI0 = colors[colorIndexes[0]];
+var colorI1 = colors[colorIndexes[1]];
+var colorI2 = colors[colorIndexes[2]];
+var colorI3 = colors[colorIndexes[3]];
 
+//assigns colors that are to be run
 var istep = 1 - step;
-var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
-var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
-var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
-var color1 = "rgb("+r1+","+g1+","+b1+")";
+var red1 = Math.round(istep * colorI0[0] + step * colorI1[0]);
+var green1 = Math.round(istep * colorI0[1] + step * colorI1[1]);
+var blue1 = Math.round(istep * colorI0[2] + step * colorI1[2]);
+var color1 = "rgb("+red1+","+green1+","+blue1+")";
 
-var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
-var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
-var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
-var color2 = "rgb("+r2+","+g2+","+b2+")";
+var red2 = Math.round(istep * colorI2[0] + step * colorI3[0]);
+var green2 = Math.round(istep * colorI2[1] + step * colorI3[1]);
+var blue2 = Math.round(istep * colorI2[2] + step * colorI3[2]);
+var color2 = "rgb("+red2+","+green2+","+blue2+")";
 
+//changes the background by adding css
  $('.gradient').css({
    background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
     background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
   
+//places colors into empty string, then adds them to the css
   step += gradientSpeed;
   if ( step >= 1 ){
     step %= 1;
@@ -135,4 +149,5 @@ var color2 = "rgb("+r2+","+g2+","+b2+")";
   }
 }
 
+//interval that keeps the function running
 setInterval(updateGradient,10);

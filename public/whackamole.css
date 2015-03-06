@@ -1,4 +1,4 @@
-
+/*for div boxes*/
 .whack-boxes{
     width: 125px;
     height: 125px;
@@ -10,6 +10,7 @@
 
 }
 
+/*when image fades in*/
 .fade-in{
     border:none;
  	background-color: none;
@@ -22,10 +23,12 @@
     opacity: 1.0;
 }
 
+/*game timer*/
 #timer{
 	text-align: center;
 }
 
+/*for the body and html*/
 html,body {
 	cursor: url('images/laurence-fishburne.png.png'), default;
     background-color: #000000;
@@ -33,6 +36,8 @@ html,body {
     margin: 0px;
 
 }
+
+/*the game score and game time fonts*/
 h1,h2{
     color: #fadcbe;
     font-family: 'Shadows Into Light', cursive;
@@ -42,10 +47,14 @@ h1,h2{
              0px 24px 2px rgba(0,0,0,0.1),
              0px 34px 30px rgba(0,0,0,0.1);
 }
+
+/*the games score*/
 #score{
 	text-align: center;
     margin-left: 20px;
 }
+
+/*for the start and start over buttons*/
 .btn{
     border-radius: 5%;
     height: 50px;
@@ -58,22 +67,20 @@ h1,h2{
     border-color: #B75757;
 }
 
+/*when the buttins are hovered over*/
 .btn:hover{
     background-color:#32a787;
     color: #fff;
 }
+
+/* for the game reset button*/
 #gameReset{
     float: right;
     width: 130px;
     margin-right: 210px;
 }
 
-body{
-     background-color: #000000;
-   padding: 0px;
-   margin: 0px;
- }
-
+/*for the gradient background*/
 .gradient{
   width: 100%;
   height: 100%;
