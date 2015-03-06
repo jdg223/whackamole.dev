@@ -32,7 +32,7 @@ function endOfAnimation() {
 	},200);
 };
 
-// this is what keeps the and displays game time remaining
+// this keeps the display of game time remaining
 function gameTimer() {		
 	var timer = 30;
 	var i = 30;
@@ -87,7 +87,7 @@ $('#gameStart').click(function() {
 	runGame();
 });
 
-//if the buttin is pressed the game will restart
+//if the button is pressed the game will restart
 $('#gameReset').click(function() {
 	resetGame();
 });

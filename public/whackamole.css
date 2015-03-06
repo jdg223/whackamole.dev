@@ -67,7 +67,7 @@ h1,h2{
     border-color: #B75757;
 }
 
-/*when the buttins are hovered over*/
+/*when the buttons are hovered over*/
 .btn:hover{
     background-color:#32a787;
     color: #fff;
