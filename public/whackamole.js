@@ -15,7 +15,7 @@ function moleAnimation() {
 	var random = randomBox();
 	var beginAnimate = setInterval(function() {
 	randomBox().addClass('fade-in');
-	},1500 / score.length);
+	},1500);
 	
 	setInterval(function() {
 	if(timeRemaining.length == 31){
@@ -141,7 +141,7 @@ var color2 = "rgb("+red2+","+green2+","+blue2+")";
   if ( step >= 1 ){
     step %= 1;
     colorIndexes[0] = colorIndexes[1];
-    colorIndices[2] = colorIndexes[3];
+    colorIndexes[2] = colorIndexes[3];
     
     colorIndexes[1] = ( colorIndexes[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
     colorIndexes[3] = ( colorIndexes[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
